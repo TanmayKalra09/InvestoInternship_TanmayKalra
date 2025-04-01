@@ -19,7 +19,8 @@ const Pricing = () => {
 
   const basePrice = prices[pageviews];
   const discountedPrice = isYearly ? basePrice * 0.75 : basePrice;
-  const sliderBackground = `linear-gradient(to right, #a2f3eb ${pageviews * 25}%, #e0e0e0 ${pageviews * 25}%)`;
+  const sliderPercentage = (pageviews / (prices.length - 1)) * 100;
+  const sliderBackground = `linear-gradient(to right, #a2f3eb ${sliderPercentage}%, #e0e0e0 ${sliderPercentage}%)`;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100"
@@ -42,7 +43,7 @@ const Pricing = () => {
       <div className="w-full sm:w-xl h-auto mb-10 sm:mb-20 mx-auto p-6 sm:p-10 bg-white shadow-lg rounded-lg">
         <div className="text-center">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-6 text-[#8b8e9a] font-bold">
-            <p className="text-left">100K PAGEVIEWS</p>
+            <p className="text-left">{pageviewRanges[pageviews].toLocaleString()} PAGEVIEWS</p>
             <div className="text-2xl sm:text-4xl font-bold flex items-baseline text-[#2d4862]">
               <span>${discountedPrice.toFixed(2)}</span>
               <span className="text-lg ml-1 text-[#8b8e9a]">/{isYearly ? 'year' : 'month'}</span>
