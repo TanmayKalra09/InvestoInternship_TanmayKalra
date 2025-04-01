@@ -1,46 +1,40 @@
-/* Pricing.css */
-/* Add this to your Pricing.css file */
-
 .slider-custom {
-    -webkit-appearance: none; /* Remove default appearance */
-    width: 100%;
-    height: 10px; /* Slider track height */
-    background: #ddd;
-    border-radius: 5px;
-    outline: none;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .slider-custom::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Remove default thumb appearance */
-    width: 30px; /* Width of the thumb */
-    height: 30px; /* Height of the thumb */
-    background: url('/icon-slider.svg') no-repeat center center; /* Use your custom image */
-    background-size: contain; /* Ensure the image scales within the thumb */
-    border-radius: 50%; /* Make the thumb round */
-    cursor: pointer; /* Make the thumb clickable */
-    border: 5px solid #12d5c7; /* Green circle around the thumb */
-    background-color: #12d5c7; /* Filled green background for the thumb */
-  }
-  
-  .slider-custom::-moz-range-thumb {
-    width: 30px;
-    height: 30px;
-    background: url('/images/icon-slider.svg') no-repeat center center;
-    background-size: contain;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 5px solid #12d5c7; /* Green circle around the thumb */
-    background-color: #12d5c7; /* Filled green background for the thumb */
-  }
-  
-  .slider-custom::-ms-thumb {
-    width: 30px;
-    height: 30px;
-    background: url('/images/icon-slider.svg') no-repeat center center;
-    background-size: contain;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 5px solid #12d5c7; /* Green circle around the thumb */
-    background-color: #12d5c7; /* Filled green background for the thumb */
-  }
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s ease-in-out;
+}
+.slider-custom::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  background: url('/icon-slider.svg') no-repeat center center;
+  background-size: contain;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 5px solid #12d5c7;
+  background-color: #12d5c7;
+}
+.slider-custom::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  background: url('/icon-slider.svg') no-repeat center center;
+  background-size: contain;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 5px solid #12d5c7;
+  background-color: #12d5c7;
+}
+.slider-custom::-ms-thumb {
+  width: 30px;
+  height: 30px;
+  background: url('/icon-slider.svg') no-repeat center center;
+  background-size: contain;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 5px solid #12d5c7;
+  background-color: #12d5c7;
+}
