@@ -1,10 +1,17 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Pricing.css'; 
 
 const Pricing = () => {
   const [pageviews, setPageviews] = useState(0); 
   const [isYearly, setIsYearly] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+  });
+
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prev) => !prev);
+  };
 
   const prices = [8, 12, 16, 24, 36];
   const pageviewRanges = ["10K", "50K", "100K", "500K", "1000K"];
@@ -23,28 +30,44 @@ const Pricing = () => {
   const sliderBackground = `linear-gradient(to right, #a2f3eb ${sliderPercentage}%, #e0e0e0 ${sliderPercentage}%)`;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100"
+    <div className={`flex flex-col items-center justify-center min-h-screen transition-all duration-300 ${
+      isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+    }`}
     style={{
-      backgroundImage: `url(/bg-pattern.svg)`,
+      backgroundImage: isDarkMode ? `url()` : `url(/bg-pattern.svg)`,
       backgroundSize: '110% 50%', 
-    backgroundPosition: 'top 0',
-    backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'top 0',
+      backgroundRepeat: 'no-repeat',
     }}>
+      <div className="absolute top-5 right-5 flex items-center">
+        <span className="text-sm font-bold mr-2">Dark Mode</span>
+        <div onClick={toggleDarkMode} className="relative w-12 h-6 cursor-pointer">
+          <div className={`w-full h-full rounded-full p-1 transition-colors ${
+            isDarkMode ? 'bg-[#12d5c7]' : 'bg-gray-200'
+          }`}>
+            <div className={`w-4 h-4 bg-white rounded-full transform transition-transform ${
+              isDarkMode ? 'translate-x-6' : 'translate-x-0'
+            }`}></div>
+          </div>
+        </div>
+      </div>
       <div className="text-center mb-6 sm:mb-10">
       <img 
       src="/pattern-circles.svg" 
       className="absolute top-0 left-1/2 transform -translate-x-1/2 mt-10 sm:mt-15 w-1/3 sm:max-w-[150px] opacity-50"
     />
-        <h1 className="text-xl sm:text-3xl font-bold text-[#2d4862] mb-3">Simple, traffic-based pricing</h1>
+        <h1 className={`text-xl sm:text-3xl font-bold mb-3 ${isDarkMode ? "text-white" : "text-[#2d4862]"}`}>Simple, traffic-based pricing</h1>
         <p className="text-sm sm:text-base text-[#8b8e9a] font-bold">Sign-up for our 30-day trial. No credit card required.</p>
       </div>
 
-      <div className="w-full sm:w-xl h-auto mb-10 sm:mb-20 mx-auto p-6 sm:p-10 bg-white shadow-lg rounded-lg">
+    <div className={`w-full sm:w-xl h-auto mb-10 sm:mb-20 mx-auto p-6 sm:p-10 shadow-lg rounded-lg transition-all duration-300 ${
+        isDarkMode ? "bg-gray-800 text-white" : "bg-white text-black"
+      }`}>
         <div className="text-center">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-6 text-[#8b8e9a] font-bold">
             <p className="text-left">{pageviewRanges[pageviews].toLocaleString()} PAGEVIEWS</p>
             <div className="text-2xl sm:text-4xl font-bold flex items-baseline text-[#2d4862]">
-              <span>${discountedPrice.toFixed(2)}</span>
+              <span className={`${isDarkMode ? "text-white" : "text-[#2d4862]"}`}>${discountedPrice.toFixed(2)}</span>
               <span className="text-lg ml-1 text-[#8b8e9a]">/ monthly</span>
             </div>
           </div>
@@ -65,7 +88,9 @@ const Pricing = () => {
               onClick={handleToggleChange}
               className="relative cursor-pointer"
             >
-              <div className={`toggle-wrapper w-12 h-6 rounded-full p-1 transition-colors ${isYearly ? 'bg-[#12d5c7]' : 'bg-gray-200'}`}>
+              <div className={`toggle-wrapper w-12 h-6 rounded-full p-1 transition-colors ${
+                isYearly ? 'bg-[#12d5c7]' : isDarkMode ? 'bg-gray-600' : 'bg-gray-200'
+              }`}>
                 <div
                   className={`toggle-circle w-4 h-4 bg-white  rounded-full transform transition-transform ${
                     isYearly ? 'translate-x-6' : 'translate-x-0'
@@ -97,7 +122,9 @@ const Pricing = () => {
                 <span className='text-sm'>Email reports</span>
               </div>
             </div>
-            <button className="px-6 py-3 bg-[#2d4862] rounded-3xl mt-6  sm:mt-0 text-white  hover:bg-[#2d4862]w-1/2 sm:w-1/3 cursor-pointer  sm:mx-0">
+            <button className={`px-6 py-3 rounded-3xl mt-6 sm:mt-0 cursor-pointer transition-all duration-300 ${
+              isDarkMode ? "bg-gray-700 text-white hover:bg-gray-600" : "bg-[#2d4862] text-white hover:bg-[#233645]"
+            }`}>
               Start my Trial
             </button>
           </div>
