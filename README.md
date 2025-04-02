@@ -1,5 +1,5 @@
 
-# Investo Internship
+# About the Project
 This project is an interactive pricing component built using Next.js, TailwindCSS, and ShadCN. The application allows users to dynamically adjust pricing based on page views and toggle between monthly and yearly billing. It also includes a dark mode feature.
 ## Features
 - Dynamic Pricing: Adjusts price based on selected page views.
