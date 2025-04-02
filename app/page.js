@@ -7,7 +7,7 @@ const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
 
   const prices = [8, 12, 16, 24, 36];
-  const pageviewRanges = [10000, 50000, 100000, 500000, 1000000];
+  const pageviewRanges = ["10K", "50K", "100K", "500K", "1000K"];
 
   const handleSliderChange = (e) => {
     setPageviews(Number(e.target.value));
@@ -33,7 +33,6 @@ const Pricing = () => {
       <div className="text-center mb-6 sm:mb-10">
       <img 
       src="/pattern-circles.svg" 
-      alt="Illustration"
       className="absolute top-0 left-1/2 transform -translate-x-1/2 mt-10 sm:mt-15 w-1/3 sm:max-w-[150px] opacity-50"
     />
         <h1 className="text-xl sm:text-3xl font-bold text-[#2d4862] mb-3">Simple, traffic-based pricing</h1>
@@ -46,7 +45,7 @@ const Pricing = () => {
             <p className="text-left">{pageviewRanges[pageviews].toLocaleString()} PAGEVIEWS</p>
             <div className="text-2xl sm:text-4xl font-bold flex items-baseline text-[#2d4862]">
               <span>${discountedPrice.toFixed(2)}</span>
-              <span className="text-lg ml-1 text-[#8b8e9a]">/{isYearly ? 'year' : 'month'}</span>
+              <span className="text-lg ml-1 text-[#8b8e9a]">/ monthly</span>
             </div>
           </div>
 
@@ -76,28 +75,29 @@ const Pricing = () => {
             </div>
             <span className="ml-2 text-xs sm:text-sm">Yearly Billing</span>
             <span className="px-1 py-0.1 bg-orange-100 rounded-3xl text-orange-500 ml-2 mt-0.5 font-bold ">
-              <div className='text-xs'>25% Discount</div>
+              <div className='text-xs'>25% Discount
+              </div>
             </span>
           </div>
 
-          <hr className="my-7 border-black" />
+          <hr className="my-7 " />
 
           <div className="flex flex-col sm:flex-row justify-between items-start mt-6">
             <div className="flex flex-col space-y-4 w-full sm:w-1/2">
               <div className="flex items-center">
                 <img src="/icon-check.svg" alt="check" className="mr-2" />
-                <span>Unlimited websites</span>
+                <span className='text-sm'>Unlimited websites</span>
               </div>
               <div className="flex items-center">
                 <img src="/icon-check.svg" alt="check" className="mr-2" />
-                <span>100% data ownership</span>
+                <span className='text-sm'>100% data ownership</span>
               </div>
               <div className="flex items-center">
                 <img src="/icon-check.svg" alt="check" className="mr-2" />
-                <span>Email</span>
+                <span className='text-sm'>Email reports</span>
               </div>
             </div>
-            <button className="px-6 py-3 bg-[#2d4862]  rounded-3xl mt-6 sm:mt-0 text-white  hover:bg-black w-1/2 sm:w-1/3 cursor-pointer mx-auto sm:mx-0">
+            <button className="px-6 py-3 bg-[#2d4862] rounded-3xl mt-6  sm:mt-0 text-white  hover:bg-[#2d4862]w-1/2 sm:w-1/3 cursor-pointer  sm:mx-0">
               Start my Trial
             </button>
           </div>
